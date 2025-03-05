@@ -8,7 +8,13 @@ import { Starship } from '@/types/starships';
 import { Vehicle } from '@/types/vehicles';
 import { useLocalSearchParams } from 'expo-router';
 import { FC, useEffect, useState } from 'react';
-import { Text, StyleSheet, View, FlatList } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  FlatList,
+  ActivityIndicator,
+} from 'react-native';
 
 const PersonInfo: FC = () => {
   const { id } = useLocalSearchParams();
@@ -78,7 +84,11 @@ const PersonInfo: FC = () => {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Text>Loading...</Text>
+        <ActivityIndicator
+          size="large"
+          color={COLORS.text}
+          style={{ marginTop: 50 }}
+        />
       </View>
     );
   }

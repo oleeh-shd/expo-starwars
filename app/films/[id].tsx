@@ -11,6 +11,7 @@ import {
   ScrollView,
   RefreshControl,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FAVORITES_KEY } from '@/constants';
@@ -83,7 +84,11 @@ const Details = () => {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Text>Loading...</Text>
+        <ActivityIndicator
+          size="large"
+          color={COLORS.text}
+          style={{ marginTop: 50 }}
+        />
       </View>
     );
   }
